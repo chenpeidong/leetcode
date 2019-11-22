@@ -10,7 +10,7 @@ public class MyCircularQueue {
 
     private int[] arr;
 
-    private int length = 0;
+    private int size = 0;
 
     private int head = -1;
 
@@ -20,7 +20,7 @@ public class MyCircularQueue {
      * Initialize your data structure here. Set the size of the queue to be k.
      */
     public MyCircularQueue(int k) {
-        if (k <= 0) throw new RuntimeException("illegal length!");
+        if (k <= 0) throw new RuntimeException("illegal size!");
         this.arr = new int[k];
     }
 
@@ -31,13 +31,12 @@ public class MyCircularQueue {
         if (isFull()) {
             return false;
         }
-        this.tail = (this.tail + 1) % arr.length;
+        this.tail = (this.tail + 1) % this.arr.length;
         if (isEmpty()) {
             this.head = this.tail;
-            this.tail = 0;
         }
         this.arr[this.tail] = value;
-        this.length++;
+        this.size++;
         return true;
     }
 
@@ -48,12 +47,14 @@ public class MyCircularQueue {
         if (isEmpty()) {
             return false;
         }
-        if (this.head == this.arr.length - 1) {
-            this.head = 0;
+
+        if (this.head == this.tail) {
+            this.head = -1;
+            this.tail = -1;
         } else {
-            this.head++;
+            this.head = (this.head + 1) % this.arr.length;
         }
-        this.length--;
+        this.size--;
         return true;
     }
 
@@ -81,14 +82,14 @@ public class MyCircularQueue {
      * Checks whether the circular queue is empty or not.
      */
     public boolean isEmpty() {
-        return this.length == 0;
+        return this.size == 0;
     }
 
     /**
      * Checks whether the circular queue is full or not.
      */
     public boolean isFull() {
-        return this.length == this.arr.length;
+        return this.size == this.arr.length;
     }
 
 }
