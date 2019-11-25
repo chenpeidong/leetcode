@@ -1,6 +1,5 @@
 package site.syso.easy;
 
-import java.util.Arrays;
 import java.util.HashSet;
 
 /**
@@ -22,7 +21,7 @@ import java.util.HashSet;
  * 链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class E26_RemoveDuplicates {
+public class E026_RemoveDuplicates {
 
 
     /**
@@ -63,15 +62,15 @@ public class E26_RemoveDuplicates {
 
     public static void main(String[] args) {
         int[] nums = {1, 1, 2};
-        E26_RemoveDuplicates e26_removeDuplicates = new E26_RemoveDuplicates();
+        E026_RemoveDuplicates e026_removeDuplicates = new E026_RemoveDuplicates();
         // System.out.println(e26_removeDuplicates.removeDuplicates(nums));
-        System.out.println(e26_removeDuplicates.removeDuplicates2(nums));
+        System.out.println(e026_removeDuplicates.removeDuplicates2(nums));
         int[] nums2 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
         // System.out.println(e26_removeDuplicates.removeDuplicates(nums2));
-        System.out.println(e26_removeDuplicates.removeDuplicates2(nums2));
+        System.out.println(e026_removeDuplicates.removeDuplicates2(nums2));
         int[] nums3 = {1};
         // System.out.println(e26_removeDuplicates.removeDuplicates(nums3));
-        System.out.println(e26_removeDuplicates.removeDuplicates2(nums3));
+        System.out.println(e026_removeDuplicates.removeDuplicates2(nums3));
     }
 
 

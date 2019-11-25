@@ -22,7 +22,7 @@ import java.util.Arrays;
  * 链接：https://leetcode-cn.com/problems/remove-element
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class E27_RemoveElement {
+public class E027_RemoveElement {
 
     /**
      * 双指针
@@ -31,6 +31,7 @@ public class E27_RemoveElement {
      * 第一个指针+1，第二个指针继续向后遍历直到遍历完成
      */
     public int removeElement(int[] nums, int val) {
+        if (nums == null || nums.length == 0) return 0;
         int result = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == val) {
@@ -44,11 +45,11 @@ public class E27_RemoveElement {
 
     public static void main(String[] args) {
         // nums = [3,2,2,3], val = 3
-        E27_RemoveElement e27_removeElement = new E27_RemoveElement();
+        E027_RemoveElement e027_removeElement = new E027_RemoveElement();
         int[] nums = {3, 2, 2, 3};
-        System.out.println(e27_removeElement.removeElement(nums, 3));
+        System.out.println(e027_removeElement.removeElement(nums, 3));
         int[] nums2 = {0, 1, 2, 2, 3, 0, 4, 2};
-        System.out.println(e27_removeElement.removeElement(nums2, 2));
+        System.out.println(e027_removeElement.removeElement(nums2, 2));
         Arrays.stream(nums2).forEach(System.out::print);
 
     }
