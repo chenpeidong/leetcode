@@ -1,4 +1,4 @@
-package site.syso.easy;
+package site.syso.leetcode.easy;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -17,7 +17,7 @@ import java.util.Map;
  * 因为 nums[0] + nums[1] = 2 + 7 = 9
  * 所以返回 [0, 1]
  */
-public class E001_TwoSum {
+public class E0001_TwoSum {
 
     /**
      * 双层循环

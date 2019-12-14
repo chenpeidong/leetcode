@@ -1,4 +1,4 @@
-package site.syso.easy;
+package site.syso.leetcode.easy;
 
 /**
  * 实现 int sqrt(int x) 函数。
@@ -18,7 +18,7 @@ package site.syso.easy;
  * 链接：https://leetcode-cn.com/problems/sqrtx
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class E069_MySqrt {
+public class E0069_MySqrt {
 
     /**
      * 二分法
@@ -41,12 +41,12 @@ public class E069_MySqrt {
     }
 
     public static void main(String[] args) {
-        E069_MySqrt e069_mySqrt = new E069_MySqrt();
-        System.out.println(e069_mySqrt.mySqrt(4));
-        System.out.println(e069_mySqrt.mySqrt(8));
-        System.out.println(e069_mySqrt.mySqrt(9));
-        System.out.println(e069_mySqrt.mySqrt(15));
-        System.out.println(e069_mySqrt.mySqrt(17));
+        E0069_MySqrt e0069_mySqrt = new E0069_MySqrt();
+        System.out.println(e0069_mySqrt.mySqrt(4));
+        System.out.println(e0069_mySqrt.mySqrt(8));
+        System.out.println(e0069_mySqrt.mySqrt(9));
+        System.out.println(e0069_mySqrt.mySqrt(15));
+        System.out.println(e0069_mySqrt.mySqrt(17));
     }
 
 }

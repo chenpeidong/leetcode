@@ -1,4 +1,4 @@
-package site.syso.easy;
+package site.syso.leetcode.easy;
 
 /**
  * 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
@@ -12,7 +12,7 @@ package site.syso.easy;
  * 链接：https://leetcode-cn.com/problems/maximum-subarray
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class E053_MaxSubArray {
+public class E0053_MaxSubArray {
 
     public int maxSubArray(int[] nums) {
         // TODO

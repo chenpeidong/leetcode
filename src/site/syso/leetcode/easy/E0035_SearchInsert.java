@@ -1,4 +1,4 @@
-package site.syso.easy;
+package site.syso.leetcode.easy;
 
 /**
  * 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
@@ -24,7 +24,7 @@ package site.syso.easy;
  * 链接：https://leetcode-cn.com/problems/search-insert-position
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class E35_SearchInsert {
+public class E0035_SearchInsert {
 
     /**
      * 二分查找
@@ -49,7 +49,7 @@ public class E35_SearchInsert {
 
     public static void main(String[] args) {
         int[] nums = {1, 3, 5, 6};
-        E35_SearchInsert e35 = new E35_SearchInsert();
+        E0035_SearchInsert e35 = new E0035_SearchInsert();
         System.out.println(e35.searchInsert(nums, 5));
         System.out.println(e35.searchInsert(nums, 2));
         System.out.println(e35.searchInsert(nums, 7));

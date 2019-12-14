@@ -1,4 +1,4 @@
-package site.syso.easy;
+package site.syso.leetcode.easy;
 
 /**
  * 实现 strStr() 函数。
@@ -20,7 +20,7 @@ package site.syso.easy;
  * 链接：https://leetcode-cn.com/problems/implement-strstr
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class E028_StrStr {
+public class E0028_StrStr {
 
     public int strStr(String haystack, String needle) {
         if (haystack == null) return -1;
@@ -53,7 +53,7 @@ public class E028_StrStr {
     }
 
     public static void main(String[] args) {
-        E028_StrStr e028 = new E028_StrStr();
+        E0028_StrStr e028 = new E0028_StrStr();
         String haystack = "aaaaa", needle = "bba";
         System.out.println(e028.strStr(haystack, needle));
         System.out.println(e028.strStr2(haystack, needle));
