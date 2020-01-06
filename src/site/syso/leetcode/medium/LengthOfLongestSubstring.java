@@ -1,4 +1,4 @@
-package site.syso.middle;
+package site.syso.leetcode.medium;
 
 import java.util.HashMap;
 import java.util.HashSet;

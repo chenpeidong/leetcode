@@ -2,9 +2,6 @@ package site.syso.explore;
 
 /**
  * 循环队列
- *
- * @author chenpeidong
- * @date 2019/11/22 下午3:05
  */
 public class MyCircularQueue {
 
