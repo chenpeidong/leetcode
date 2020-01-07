@@ -10,15 +10,63 @@ public class Sorter {
 
     public static void main(String[] args) {
         Sorter sorter = new Sorter();
-        int[] arr1 = {3, 6, 2, 4, 1, 5};
+        int[] original = {3, 6, 2, 4, 7, 8, 1, 5};
         // 冒泡排序
-        print(sorter.bubbleSort(arr1));
+        print(sorter.bubbleSort(copyArray(original)));
         // 插入排序
-        int[] arr2 = {3, 6, 2, 4, 1, 5};
-        print(sorter.insertionSort(arr2));
+        print(sorter.insertionSort(copyArray(original)));
         // 选择排序
-        int[] arr3 = {3, 6, 2, 4, 1, 5};
-        print(sorter.selectionSort(arr3));
+        print(sorter.selectionSort(copyArray(original)));
+        // 归并排序
+        print(sorter.mergeSort(copyArray(original)));
+    }
+
+
+    /**
+     * 归并排序
+     * <p>
+     * 原地排序：×
+     * 稳定排序：√
+     * 时间复杂度：O(nlogn)
+     * 空间复杂度：O(n)
+     * <p>
+     * 思想：分治。实现：递归
+     */
+    private int[] mergeSort(int[] arr) {
+        if (arr == null || arr.length <= 1) return arr;
+        mergeSortRec(arr, 0, arr.length - 1);
+        return arr;
+    }
+
+    private void mergeSortRec(int[] arr, int start, int end) {
+        // 终止条件
+        if (start >= end) return;
+        // 分治&递归
+        int mid = (start + end) / 2;
+        mergeSortRec(arr, start, mid);
+        mergeSortRec(arr, mid + 1, end);
+        // 合并
+        merge(arr, start, mid, end);
+    }
+
+    private void merge(int[] source, int start, int mid, int end) {
+        int[] tmp = new int[source.length];
+        int index = start, leftPos = start, rightPos = mid + 1;
+        // 比较&合并
+        while (leftPos <= mid && rightPos <= end) {
+            if (source[leftPos] <= source[rightPos]) {
+                tmp[index++] = source[leftPos++];
+            } else {
+                tmp[index++] = source[rightPos++];
+            }
+        }
+        // 如果数组中仍有数据，直接将后面所有元素追加到result数组中
+        while (leftPos <= mid) tmp[index++] = source[leftPos++];
+        while (rightPos <= end) tmp[index++] = source[rightPos++];
+        // 复制
+        for (int i = start; i <= end; i++) {
+            source[i] = tmp[i];
+        }
     }
 
 
@@ -28,6 +76,7 @@ public class Sorter {
      * 原地排序：√
      * 稳定排序：×
      * 时间复杂度：O(n²)
+     * 空间复杂度：O(1)
      * <p>
      * 选择排序算法的实现思路有点类似插入排序，也分已排序区间和未排序区间。
      * 但是选择排序每次会从未排序区间中找到最小的元素，将其放到已排序区间的末尾。
@@ -54,6 +103,7 @@ public class Sorter {
      * 原地排序：√
      * 稳定排序：√
      * 时间复杂度：O(n²)
+     * 空间复杂度：O(1)
      * <p>
      * 将数组中的数据分为两个区间，已排序区间和未排序区间。
      * 初始已排序区间只有一个元素，就是数组的第一个元素。
@@ -82,6 +132,7 @@ public class Sorter {
      * 原地排序：√
      * 稳定排序：√
      * 时间复杂度：O(n²)
+     * 空间复杂度：O(1)
      * <p>
      * 冒泡排序只会操作相邻的两个数据。每次冒泡操作都会对相邻的两个元素进行比较，看是否满足大小关系要求。如果不满足就让它俩互换。
      */
@@ -99,6 +150,11 @@ public class Sorter {
             if (!change) break;
         }
         return arr;
+    }
+
+
+    private static int[] copyArray(int[] original) {
+        return Arrays.copyOf(original, original.length);
     }
 
 
