@@ -19,18 +19,62 @@ public class Sorter {
         print(sorter.selectionSort(copyArray(original)));
         // 归并排序
         print(sorter.mergeSort(copyArray(original)));
+        // 快速排序
+        print(sorter.quickSort(copyArray(original)));
+    }
+
+
+    /**
+     * 快速排序
+     * <p>
+     * 思想：分治。实现：递归
+     * <p>
+     * 原地排序：√
+     * 稳定排序：×
+     * 时间复杂度：O(nlogn) - O(n²)
+     * 空间复杂度：O(1)
+     */
+    private int[] quickSort(int[] arr) {
+        quickSortRec(arr, 0, arr.length - 1);
+        return arr;
+    }
+
+    private void quickSortRec(int[] arr, int start, int end) {
+        // 终止条件
+        if (start >= end) return;
+        // 获取分区点
+        int pivotIndex = partition(arr, start, end);
+        // 分治&递归
+        quickSortRec(arr, start, pivotIndex - 1);
+        quickSortRec(arr, pivotIndex + 1, end);
+    }
+
+    private int partition(int[] arr, int start, int end) {
+        // 选取最后一个元素为基准数
+        int pivot = arr[end];
+        int i = start;
+        // 比pivot小的值移动到前面
+        for (int j = start; j < end; j++) {
+            if (arr[j] < pivot) {
+                if (i != j) swap(arr, i, j);
+                i++;
+            }
+        }
+        // 交换：循环结束后i为大于和小于基准数的分界，且i下标对应的元素>pivot
+        swap(arr, i, end);
+        return i;
     }
 
 
     /**
      * 归并排序
      * <p>
+     * 思想：分治。实现：递归
+     * <p>
      * 原地排序：×
      * 稳定排序：√
      * 时间复杂度：O(nlogn)
      * 空间复杂度：O(n)
-     * <p>
-     * 思想：分治。实现：递归
      */
     private int[] mergeSort(int[] arr) {
         if (arr == null || arr.length <= 1) return arr;
@@ -89,9 +133,7 @@ public class Sorter {
             }
             if (minIndex == i) continue;
             // 交换
-            arr[i] ^= arr[minIndex];
-            arr[minIndex] ^= arr[i];
-            arr[i] ^= arr[minIndex];
+            swap(arr, i, minIndex);
         }
         return arr;
     }
@@ -141,9 +183,7 @@ public class Sorter {
             boolean change = false;
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {  // 交换
-                    arr[j] ^= arr[j + 1];
-                    arr[j + 1] ^= arr[j];
-                    arr[j] ^= arr[j + 1];
+                    swap(arr, j, j + 1);
                     change = true;
                 }
             }
@@ -152,11 +192,15 @@ public class Sorter {
         return arr;
     }
 
+    private void swap(int[] arr, int index1, int index2) {
+        int tmp = arr[index1];
+        arr[index1] = arr[index2];
+        arr[index2] = tmp;
+    }
 
     private static int[] copyArray(int[] original) {
         return Arrays.copyOf(original, original.length);
     }
-
 
     private static void print(int[] arr) {
         System.out.println(Arrays.stream(arr).boxed().map(Object::toString).collect(Collectors.joining(",")));
