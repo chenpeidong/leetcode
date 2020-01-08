@@ -31,7 +31,7 @@ public class Sorter {
      * <p>
      * 原地排序：√
      * 稳定排序：×
-     * 时间复杂度：O(nlogn) - O(n²)
+     * 时间复杂度：O(nlogn) 最差： O(n²)
      * 空间复杂度：O(1)
      */
     private int[] quickSort(int[] arr) {
