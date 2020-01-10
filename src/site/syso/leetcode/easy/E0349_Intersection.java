@@ -38,7 +38,7 @@ public class E0349_Intersection {
         for (int num : nums1) {
             set1.add(num);
         }
-        StringBuilder builder = new StringBuilder();
+
         Set<Integer> set2 = new HashSet<>();
         for (int i : nums2) {
             if (set1.contains(i)) set2.add(i);
