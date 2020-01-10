@@ -25,16 +25,16 @@ import java.util.Map;
  * 链接：https://leetcode-cn.com/problems/intersection-of-two-arrays-ii
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class E0350_Intersection2 {
+public class E0350_IntersectionII {
 
     public static void main(String[] args) {
         int[] nums1 = {4, 9, 5, 9};
         int[] nums2 = {9, 4, 9, 8, 4};
-        int[] intersection = new E0350_Intersection2().intersection(nums1, nums2);
+        int[] intersection = new E0350_IntersectionII().intersectionII(nums1, nums2);
         System.out.println(Arrays.toString(intersection));
     }
 
-    private int[] intersection(int[] nums1, int[] nums2) {
+    private int[] intersectionII(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null || nums1.length == 0 || nums2.length == 0) return new int[0];
         Map<Integer, Integer> map1 = new HashMap<>();
         for (int num : nums1) {
