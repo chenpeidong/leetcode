@@ -27,7 +27,7 @@ public class Array_SeparateEvenAndOdd {
         if (arr == null || arr.length <= 1) return;
 
         int left = 0, right = arr.length - 1;
-        while (right - left > 1) {
+        while (left < right) {
             while ((arr[left] & 1) == 1 && left < right) {//偶数
                 left++;
             }
