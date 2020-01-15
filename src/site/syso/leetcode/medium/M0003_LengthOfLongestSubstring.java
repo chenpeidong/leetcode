@@ -1,8 +1,6 @@
 package site.syso.leetcode.medium;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -27,34 +25,14 @@ import java.util.Set;
  * 解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
  * 请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
  */
-public class LengthOfLongestSubstring {
+public class M0003_LengthOfLongestSubstring {
 
     public static void main(String[] args) {
-        String s = "pwwkew";
+        String s = "abccbcad";
         System.out.println(lengthOfLongestSubstring(s));
-        System.out.println(lengthOfLongestSubstring2(s));
     }
 
-    public static int lengthOfLongestSubstring(String s) {
-        int max = 0;
-
-        for (int i = 0; i < s.length(); i++) {
-            Map<Character, Object> map = new HashMap<>();
-            int temp = 0;
-
-            for (int j = i; j < s.length(); j++) {
-                if (map.containsKey(s.charAt(j))) {
-                    break;
-                }
-                map.put(s.charAt(j), null);
-                temp++;
-            }
-            max = temp > max ? temp : max;
-        }
-        return max;
-    }
-
-    public static int lengthOfLongestSubstring2(String s) {
+    private static int lengthOfLongestSubstring(String s) {
         int length = s.length();
         Set<Character> set = new HashSet<>();
         int max = 0, i = 0, j = 0;
